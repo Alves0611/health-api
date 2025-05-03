@@ -4,7 +4,7 @@ metadata:
   name: poc-python
   namespace: argocd
 spec:
-  project: poc-python
+  project: default
   source:
     repoURL: https://github.com/Alves0611/health-api
     targetRevision: HEAD

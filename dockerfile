@@ -1,11 +1,12 @@
-FROM python:3.11-slim
+FROM python:3.9-slim
+
+EXPOSE 8000
 
 WORKDIR /app
-
-COPY api.py .
+COPY app.py .
 
 RUN pip install flask
 
-EXPOSE 9090
+ENV FLASK_APP=app.py
 
-CMD ["python", "api.py"]
+CMD ["python", "app.py"]
