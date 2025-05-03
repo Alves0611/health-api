@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poc-python
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poc-python
+  template:
+    metadata:
+      labels:
+        app: poc-python
+    spec:
+      containers:
+      - name: python-app
+        image: python:3.9-slim
+        command: ["python", "-m", "http.server", "8000"]
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: poc-config
+        - secretRef:
+            name: poc-secret
