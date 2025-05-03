@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: 165304687371.dkr.ecr.us-east-1.amazonaws.com/studying/dev/backend@sha256:0e8b52c1e79c8661d737a932390960f233f09a0f08c72291b9fcec79c385d97f
+        image: 165304687371.dkr.ecr.us-east-1.amazonaws.com/studying/dev/backend@sha256:43c426c1dc49f08e8671fb96d998682c350323f6dad8ef85cb537506cd323498
         command: ["python", "-m", "http.server", "8000"]
         ports:
         - containerPort: 8000
