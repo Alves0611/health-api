@@ -8,7 +8,7 @@ spec:
     - host: poc.local
       http:
         paths:
-          - path: /
+          - path: /estudando-argocd
             pathType: Prefix
             backend:
               service:
