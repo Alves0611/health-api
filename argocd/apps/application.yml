@@ -17,7 +17,13 @@ spec:
     automated:
       prune: true
       selfHeal: true
-
+  syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
+    - RespectIgnoreDifferences=true
+    - ApplyOutOfSyncOnly=false
   ignoreDifferences:
     - group: apps
       kind: Deployment
@@ -32,4 +38,3 @@ spec:
       jsonPointers:
         - /status/currentReplicas
         - /status/desiredReplicas
-
