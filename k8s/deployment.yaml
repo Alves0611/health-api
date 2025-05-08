@@ -20,3 +20,4 @@ spec:
         image: fabricioveronez/web-color:blue
         ports:
         - containerPort: 80
+
