@@ -1,17 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: poc-ingress
-  namespace: default
+  name: webcolor-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
-    - host: poc.local
-      http:
+    - http:
         paths:
-          - path: /estudando-argocd
+          - path: /
             pathType: Prefix
             backend:
               service:
-                name: poc-service
+                name: webcolor
                 port:
                   number: 80
