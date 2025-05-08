@@ -9,6 +9,7 @@ spec:
     repoURL: https://github.com/Alves0611/health-api
     targetRevision: HEAD
     path: argocd/install
+  revisionHistoryLimit: 3
   destination:
     server: https://kubernetes.default.svc
     namespace: default

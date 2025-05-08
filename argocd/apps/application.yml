@@ -9,6 +9,7 @@ spec:
     repoURL: https://github.com/Alves0611/health-api
     targetRevision: HEAD
     path: k8s
+  revisionHistoryLimit: 3
   destination:
     server: https://kubernetes.default.svc
     namespace: default
@@ -16,3 +17,19 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      name: webcolor
+      namespace: default
+      jsonPointers:
+        - /spec/replicas
+    - group: autoscaling
+      kind: HorizontalPodAutoscaler
+      name: webcolor
+      namespace: default
+      jsonPointers:
+        - /status/currentReplicas
+        - /status/desiredReplicas
+
